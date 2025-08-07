@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daily Dose of Wisdom</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- Sidebar for Favorite Quotes -->
+    <aside id="favoritesSidebar" class="hidden">
+        <h2>My Favorite Quotes</h2>
+        <ul id="favoriteQuotesList"></ul>
+    </aside>
+
+    <!-- Sidebar for Saved Quotes -->
+    <aside id="savedSidebar" class="hidden">
+        <h2>My Saved Quotes</h2>
+        <ul id="savedQuotesList"></ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+        <header>
+            <h1>Daily Dose of Wisdom</h1>
+        </header>
+
+        <section id="quoteSection">
+            <div id="quoteDisplay">
+                <p id="quoteText">"Loading quote..."</p>
+                <p id="quoteAuthor">- Author</p>
+            </div>
+
+            <div id="buttons">
+                <button id="newQuoteBtn">New Quote</button>
+                <button id="saveQuoteBtn">Save Quote</button>
+                <button id="favoriteBtn">♡ Favourite</button>
+                <button id="toggleFavoritesBtn">Toggle Favorites</button>
+                <button id="toggleSavedBtn">Toggle Saved</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e8f0fe; /* Light, pleasant blue background */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Sidebar for Favorite Quotes */
+aside#favoritesSidebar,
+aside#savedSidebar {
+    width: 300px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+/* Position saved sidebar slightly to right of favorites */
+aside#savedSidebar {
+    left: 300px;
+}
+
+aside#favoritesSidebar.visible {
+    transform: translateX(0);
+}
+
+aside#savedSidebar.visible {
+    transform: translateX(0);
+}
+
+aside h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+#favoriteQuotesList,
+#savedQuotesList {
+    list-style: none;
+}
+
+#favoriteQuotesList li,
+#savedQuotesList li {
+    margin-bottom: 10px;
+    font-style: italic;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* Main layout */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+aside.visible + aside.visible + main {
+    margin-left: 600px; /* Push content when both sidebars open */
+}
+
+aside.visible + main {
+    margin-left: 300px; /* Push content when one sidebar open */
+}
+
+/* Header */
+header h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Quote display */
+#quoteSection {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+#quoteText {
+    font-size: 22px;
+    font-style: italic;
+    margin-bottom: 20px;
+    transition: opacity 0.4s ease;
+}
+
+#quoteAuthor {
+    font-size: 18px;
+    color: #555;
+    transition: opacity 0.4s ease;
+}
+
+/* Buttons section */
+#buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #3498db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+/* Save button toggle state */
+button.saved {
+    background-color: #2ecc71;
+    color: #ffffff;
+    border-color: #2ecc71;
+}
+
+button.saved:hover {
+    background-color: #27ae60;
+}
+
+/* Favorite button toggle state */
+#favoriteBtn {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+#favoriteBtn.favorited {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+#favoriteBtn.favorited:hover {
+    background-color: #c0392b;
+}
+
+/* Toggle Favorites Button */
+#toggleFavoritesBtn {
+    border-color: #8e44ad;
+    color: #8e44ad;
+}
+
+#toggleFavoritesBtn:hover {
+    background-color: #8e44ad;
+    color: rgb(171, 227, 98);
+}
+
+/* Toggle Saved Button */
+#toggleSavedBtn {
+    border-color: #16a085;
+    color: #16a085;
+}
+
+#toggleSavedBtn:hover {
+    background-color: #16a085;
+    color: #ffffff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #quoteSection {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    aside#favoritesSidebar,
+    aside#savedSidebar {
+        width: 80%;
+        left: 0 !important; /* saved sidebar will overlay on left */
+    }
+
+    aside.visible + aside.visible + main,
+    aside.visible + main {
+        margin-left: 0;
+    }
+}
